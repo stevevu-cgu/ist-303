@@ -1,0 +1,36 @@
+from datetime import datetime
+now = datetime.now()
+print (("%s/%s/%s") % (now.month, now.day, now.year))
+
+guest = {
+	"id": 88,
+	"name": "Jane Doe",
+	"beginofstay": "10/1/2015",
+	"endofstay": "10/8/2015",
+	"room number": 1224,
+	"services": [["mineral bath", 60], ["Swedish", 60]]
+}
+
+services = {
+	"mineral bath": 2.50,
+	"Swedish": 3.00,
+	"Shiatsu": 3.00,
+	"Deep Tissue": 3.00,
+	"facial normal": 2.00,
+	"collagen": 2.00,
+	"hot stone": 3.50,
+	"sugar scrub": 3.50,
+	"herbal body wash": 3.50,
+	"botanical mud wrap": 3.50
+}
+
+def compute_bill(item, minutes):
+	billtotal = 0
+	itemtotal = services[item] * minutes
+	billtotal = billtotal + itemtotal
+	print ("%s: $%.2f" % (item, itemtotal))
+	print ("Total bill due: $%.2f" % (billtotal))
+	
+compute_bill("mineral bath", 60)
+		
+guestid = input("Please enter guest's unique id? ")
